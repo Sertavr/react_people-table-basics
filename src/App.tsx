@@ -1,10 +1,11 @@
-import { Loader } from './components/Loader';
-
 import './App.scss';
+import { Navbar } from './components/Navbar/Navbar';
+import { Outlet } from 'react-router-dom';
 
 export const App = () => (
   <div data-cy="app">
-    <nav
+    <Navbar />
+    {/* <nav
       data-cy="nav"
       className="navbar is-fixed-top has-shadow"
       role="navigation"
@@ -24,15 +25,12 @@ export const App = () => (
           </a>
         </div>
       </div>
-    </nav>
+    </nav> */}
 
     <main className="section">
       <div className="container">
-        <h1 className="title">Home Page</h1>
-        <h1 className="title">People Page</h1>
-        <h1 className="title">Page not found</h1>
-
-        <div className="block">
+        <Outlet />
+        {/* <div className="block">
           <div className="box table-container">
             <Loader />
 
@@ -160,7 +158,7 @@ export const App = () => (
               </tbody>
             </table>
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   </div>
