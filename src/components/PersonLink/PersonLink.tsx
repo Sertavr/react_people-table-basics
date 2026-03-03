@@ -9,6 +9,10 @@ type Props = {
 };
 
 export const PersonLink: React.FC<Props> = ({ person }) => {
+  if (!person) {
+    return;
+  }
+
   return (
     <Link
       to={`/people/${normalizeSlug(person?.name)}-${person?.born}`}
