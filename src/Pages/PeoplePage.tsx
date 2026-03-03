@@ -7,11 +7,10 @@ import { PeopleTable } from '../components/Table/PeopleTable';
 export const PeoplePage = () => {
   const [persons, setPersons] = useState<Person[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [loader, setLoader] = useState('');
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     setErrorMessage('');
-    setLoader('persons');
 
     getPeople()
       .then(people => {
@@ -39,7 +38,7 @@ export const PeoplePage = () => {
         setPersons(modifyPersons);
       })
       .catch(error => setErrorMessage(error.message))
-      .finally(() => setLoader(''));
+      .finally(() => setLoader(false));
   }, []);
 
   return (
